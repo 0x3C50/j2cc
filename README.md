@@ -86,6 +86,47 @@ j2cc should be able to find the proper native now.
 3. `./createDist.sh`
 4. You can now run `./dist_package/start.sh` or `./dist_package/start.ps1`
 
+### Preparing the build environment
+You need to download zig. The final build environment should look like:
+```
+dist_package
+	libs
+	natives
+	util
+	core-...jar
+	start.ps1
+	start.sh
+zig_compiler
+	zig.exe / zig
+config.toml
+input.jar
+```
+
+then, configure config.toml such that the zig compiler path is set up properly and points towards where the zig_compiler dir is. same with the util dir.
+
+If the properties aren't absolute paths, they're interpreted as names, and are searched in the following order:
+1. If the `J2CC_HOME` env var is set, it's interpreted as directory and searched
+2. Current directory is searched
+3. Parent folder of core.jar is searched
+
+If the path still isnt found after looking in these 3 spots, an error is thrown
+
+Example for the above scenario:
+#### config.toml
+```toml
+# ...
+[paths]
+	inputPath = "input.jar"
+	outputPath = "output.jar"
+
+	utilPath = "util"
+	zigPath = "zig_compiler"
+# ...
+```
+
+#### Invocation
+`./dist_package/start.sh obfuscate config.toml`
+
 ### Preparing the jar
 
 Before obfuscation can be applied, you need to prepare your jar to be transpiled. First, add
