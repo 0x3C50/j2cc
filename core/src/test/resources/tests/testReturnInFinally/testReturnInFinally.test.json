@@ -1,0 +1,7 @@
+{
+  "type": "SOURCE",
+  "name": "Test Return in Finally",
+  "expectedProgramExit": 0,
+  "programArgs": null,
+  "jvmArgs": null
+}

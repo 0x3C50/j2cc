@@ -1,0 +1,7 @@
+{
+  "type": "ASSEMBLY",
+  "name": "Test Handle LDC",
+  "expectedProgramExit": 1,
+  "programArgs": null,
+  "jvmArgs": null
+}

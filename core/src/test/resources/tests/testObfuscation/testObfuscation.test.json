@@ -1,0 +1,34 @@
+{
+  "type": "SOURCE",
+  "name": "Test Obfuscation",
+  "expectedProgramExit": 0,
+  "programArgs": null,
+  "jvmArgs": null,
+  "obfuscationSettings": {
+    "opaqueCalls": {
+      "enable": true,
+      "includeNative": true
+    },
+    "inliner": {
+      "enable": true,
+      "maxSize": 64
+    },
+    "removeUnusedClasses": {
+      "enable": true,
+      "extraEntryClasses": {
+        "extraEntryClass": [
+          "Test"
+        ]
+      }
+    },
+    "flowSettings": {
+      "enable": true,
+      "strategy": "FLATTEN"
+    },
+    "outlineMethods": {
+      "enabled": true,
+      "minInstructions": 2
+    },
+    "removeDebugInfo": true
+  }
+}

@@ -1,0 +1,19 @@
+hello varargs
+hello simple print
+hello inlining
+We're currently in:
+java.lang.Throwable
+	at Test.main(Native Method)
+We're currently in:
+java.lang.Throwable
+	at Test.main(Native Method)
+Yep: hello world
+0
+true
+true
+true
+false
+false
+true
+false
+{

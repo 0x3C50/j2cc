@@ -1,0 +1,7 @@
+{
+  "type": "SOURCE",
+  "name": "Test Control Flow",
+  "expectedProgramExit": 0,
+  "programArgs": null,
+  "jvmArgs": null
+}

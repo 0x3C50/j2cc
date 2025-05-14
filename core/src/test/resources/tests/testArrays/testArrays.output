@@ -1,0 +1,12 @@
+Hello[null, null, null, Hello, World, null, null, null, null, null]
+[false, true, false]
+\u0000a\u0000
+[0.0, 1.5, 0.0]
+[0.0, 1.5, 0.0]
+[0, 1, 0]
+[0, 1, 0]
+[0, 1, 0]
+[0, 1, 0]
+[[[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]], [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]], [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]], [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]], [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 123]]]
+Exception in thread "main" java.lang.NegativeArraySizeException: -1
+	at Test.main(Native Method)

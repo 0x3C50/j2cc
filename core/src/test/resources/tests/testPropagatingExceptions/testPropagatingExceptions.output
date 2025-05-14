@@ -1,0 +1,11 @@
+this should print
+java.lang.RuntimeException: hello chat
+	at Test.thisThrows(Native Method)
+	at Test.doesCatch(Native Method)
+	at Test.main(Native Method)
+this should print as well (after catch)
+this should print
+Exception in thread "main" java.lang.RuntimeException: hello chat
+	at Test.thisThrows(Native Method)
+	at Test.doesNotCatch(Native Method)
+	at Test.main(Native Method)

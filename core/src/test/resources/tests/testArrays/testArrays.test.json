@@ -1,0 +1,7 @@
+{
+  "type": "ASSEMBLY",
+  "name": "Test Arrays",
+  "expectedProgramExit": 1,
+  "programArgs": null,
+  "jvmArgs": null
+}

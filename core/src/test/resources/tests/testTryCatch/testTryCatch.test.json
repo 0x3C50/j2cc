@@ -1,0 +1,7 @@
+{
+  "type": "SOURCE",
+  "name": "Test Try Catch",
+  "expectedProgramExit": 1,
+  "programArgs": null,
+  "jvmArgs": null
+}

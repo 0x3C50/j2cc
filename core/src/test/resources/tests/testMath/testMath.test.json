@@ -1,0 +1,7 @@
+{
+  "type": "ASSEMBLY",
+  "name": "Test Math",
+  "expectedProgramExit": 0,
+  "programArgs": null,
+  "jvmArgs": null
+}

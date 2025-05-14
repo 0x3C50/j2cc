@@ -1,0 +1,52 @@
+.annotation j2cc/Nativeify {}
+.super java/lang/Object
+.class public Test {
+
+
+	.method <init> ()V {
+		parameters: { this },
+		code: {
+			aload this
+			invokespecial java/lang/Object.<init> ()V
+			return 
+		}
+	}
+
+	.method public static main ([Ljava/lang/String;)V {
+		parameters: { p0 },
+		code: {
+			aload p0
+			dup 
+			iconst_0 
+			aaload 
+			astore v1
+			iconst_1 
+			aaload 
+			astore v2
+			ldc 543789L
+			lstore v3
+			aconst_null 
+			astore v5
+			getstatic java/lang/System.out Ljava/io/PrintStream;
+			dup 
+			dup 
+			aload v1
+			aload v2
+			invokevirtual java/lang/String.concat (Ljava/lang/String;)Ljava/lang/String;
+			invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+			aload v5
+			invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+			lload v3
+			invokevirtual java/io/PrintStream.println (J)V
+			ldc 5L
+			lload v3
+			ladd 
+			lstore v3
+			getstatic java/lang/System.out Ljava/io/PrintStream;
+			lload v3
+			invokevirtual java/io/PrintStream.println (J)V
+			return 
+		}
+	}
+
+}

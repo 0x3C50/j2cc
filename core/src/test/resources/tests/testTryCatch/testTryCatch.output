@@ -1,0 +1,10 @@
+runtime exception (correct): Test 123
+arithmetic (correct): / by zero
+inner (correct): / by zero
+outer (also correct): / by zero
+try body does not throw (correct)
+finally still runs (correct)
+inner RuntimeException (correct): / by zero
+finally executed (correct)
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at Test.main(Native Method)

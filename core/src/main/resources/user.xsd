@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="/j2cc/configuration"
+        xmlns:j2cc="/j2cc/configuration"
+        elementFormDefault="qualified">
+
+    <element name="configuration" type="j2cc:Configuration"/>
+
+    <complexType name="Filter">
+        <attribute type="string" name="class" use="required" />
+        <attribute type="string" name="memberName" use="required"/>
+        <attribute type="string" name="descriptor" use="required"/>
+    </complexType>
+
+    <complexType name="Configuration">
+        <all>
+            <element name="inputPath" type="string" />
+            <element name="outputPath" type="string" />
+
+            <element name="utilPath" type="string" minOccurs="0"/>
+            <element name="zigPath" type="string" minOccurs="0"/>
+
+            <element name="tempPath" type="string" minOccurs="0" />
+            <element name="keepTempDir" type="boolean" minOccurs="0"/>
+
+            <element name="parallelJobs" type="unsignedInt" default="1" />
+
+            <element name="compilerType">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="gcc"/>
+                        <enumeration value="zig"/>
+                    </restriction>
+                </simpleType>
+            </element>
+
+            <element name="libraries" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="unbounded" name="library" type="string" minOccurs="0"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="libraryMatchers" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element name="libraryMatcher" maxOccurs="unbounded">
+                            <complexType>
+                                <all>
+                                    <element name="basePath" type="string"/>
+                                    <element name="globPattern" type="string"/>
+                                </all>
+                            </complexType>
+                        </element>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="targets">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="unbounded" name="target" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="zigArgs" minOccurs="0">
+                <simpleType>
+                    <list itemType="string" />
+                </simpleType>
+            </element>
+
+            <element name="debugSettings" type="j2cc:DebugSettings" />
+            <element name="obfuscationSettings" type="j2cc:ObfuscationSettings" />
+
+            <element name="compileAllMethods" type="boolean" default="false" />
+            <element name="compileExclude" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="unbounded" name="class" type="string" minOccurs="0" />
+                        <element maxOccurs="unbounded" minOccurs="0" name="method" type="j2cc:Filter" />
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="compileInclude" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element maxOccurs="unbounded" name="class" type="string" minOccurs="0" />
+                        <element maxOccurs="unbounded" minOccurs="0" name="method" type="j2cc:Filter" />
+                    </sequence>
+                </complexType>
+            </element>
+
+
+            <element name="skipOptimization" type="boolean" default="false"/>
+
+            <element name="postCompileNativeCommands" minOccurs="0">
+                <complexType>
+                    <sequence>
+                        <element name="executableThePathWillBeGivenTo" type="string" maxOccurs="unbounded" />
+                    </sequence>
+                </complexType>
+            </element>
+        </all>
+    </complexType>
+    <complexType name="ObfuscationSettings">
+        <all>
+            <element name="opaqueCalls">
+                <complexType>
+                    <all>
+                        <element name="enable" type="boolean" default="false" />
+                        <element name="includeNative" type="boolean" default="false" />
+                    </all>
+                </complexType>
+            </element>
+            <element name="inliner">
+                <complexType>
+                    <all>
+                        <element name="enable" type="boolean" default="false" />
+                        <element name="maxCodeSize" type="unsignedInt" default="42" />
+                    </all>
+                </complexType>
+            </element>
+            <element name="removeUnusedClasses">
+                <complexType>
+                    <all>
+                        <element name="enable" type="boolean" default="false" />
+                        <element name="extraEntryClasses">
+                            <complexType>
+                                <sequence>
+                                    <element maxOccurs="unbounded" name="extraEntryClass" type="string" minOccurs="0" />
+                                </sequence>
+                            </complexType>
+                        </element>
+                    </all>
+                </complexType>
+            </element>
+
+            <element name="renameMembers">
+                <complexType>
+                    <all>
+                        <element name="enable" type="boolean" default="false" />
+                        <element name="mergePackages" type="boolean" default="false" />
+                        <element name="exportPath" type="string" />
+                        <element name="filterSets">
+                            <complexType>
+                                <sequence>
+                                    <element maxOccurs="unbounded" name="filterSet" minOccurs="0">
+                                        <complexType>
+                                            <sequence>
+                                                <element name="filterType">
+                                                    <simpleType>
+                                                        <restriction base="string">
+                                                            <enumeration value="include"/>
+                                                            <enumeration value="exclude"/>
+                                                        </restriction>
+                                                    </simpleType>
+                                                </element>
+                                                <element name="class" maxOccurs="unbounded" type="string"/>
+                                            </sequence>
+                                        </complexType>
+                                    </element>
+                                </sequence>
+                            </complexType>
+                        </element>
+
+                    </all>
+                </complexType>
+            </element>
+
+            <element name="obfuscateStrings" type="boolean" default="false" />
+            <element name="opaqueMhCalls" type="boolean" default="false" />
+            <element name="opaqueClassRefs" type="boolean" default="false" />
+            <element name="removeDebugInfo" type="boolean" default="false" />
+            <element name="methodCombiner" type="boolean" default="false" />
+            <element name="vagueExceptions" type="boolean" default="false"/>
+            <element name="constantObfuscation" type="boolean" default="false" />
+
+            <element name="outlineMethods">
+                <complexType>
+                    <all>
+                        <element name="enable" type="boolean" default="false" />
+                        <element name="minInstructions" type="unsignedInt" default="5" />
+                    </all>
+
+                </complexType>
+            </element>
+
+            <element name="flow">
+                <complexType>
+                    <all>
+                        <element name="reorder" type="boolean" default="false"/>
+                        <element name="flatten" type="boolean" default="false"/>
+                        <element name="exceptionJump" type="boolean" default="false"/>
+                    </all>
+                </complexType>
+            </element>
+
+        </all>
+    </complexType>
+    <complexType name="DebugSettings">
+        <all>
+            <element name="verboseRuntime" type="boolean" default="false"/>
+            <element name="printMethodCalls" type="boolean" default="false"/>
+            <element name="printMethodEntryExit" type="boolean" default="false"/>
+            <element name="printMethodLink" type="boolean" default="false"/>
+            <element name="printBytecode" type="boolean" default="false"/>
+            <element name="verboseLoader" type="boolean" default="false"/>
+            <element name="dumpTranspilees" type="boolean" default="false"/>
+        </all>
+    </complexType>
+</schema>

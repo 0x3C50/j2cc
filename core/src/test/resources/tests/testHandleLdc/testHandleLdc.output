@@ -1,0 +1,28 @@
+MethodHandle()Class
+int
+MethodHandle()Test
+yep, this is a Test instance. real is: 0
+MethodHandle(Test,int)void
+MethodHandle(Test)int
+123
+MethodHandle(int)void
+MethodHandle()int
+121
+MethodHandle(Object)void
+hi
+MethodHandle(Test,String)void
+real is at: 123
+Exception in thread "main" java.lang.IllegalAccessError: unexpected set of a final field: java.lang.String.value/[B/putField, from class Test (unnamed module @\?)
+	at java.base/java.lang.invoke.MethodHandleNatives.mapLookupExceptionToError(MethodHandleNatives.java:\?)
+	at java.base/java.lang.invoke.MethodHandleNatives.linkMethodHandleConstant(MethodHandleNatives.java:\?)
+	at Test.main(Native Method)
+Caused by: java.lang.IllegalAccessException: unexpected set of a final field: java.lang.String.value/[B/putField, from class Test (unnamed module @\?)
+	at java.base/java.lang.invoke.MemberName.makeAccessException(MemberName.java:\?)
+	at java.base/java.lang.invoke.MethodHandles$Lookup.checkAccess(MethodHandles.java:\?)
+	at java.base/java.lang.invoke.MethodHandles$Lookup.checkField(MethodHandles.java:\?)
+	at java.base/java.lang.invoke.MethodHandles$Lookup.getDirectFieldCommon(MethodHandles.java:\?)
+	at java.base/java.lang.invoke.MethodHandles$Lookup.getDirectFieldNoSecurityManager(MethodHandles.java:\?)
+	at java.base/java.lang.invoke.MethodHandles$Lookup.getDirectMethodForConstant(MethodHandles.java:\?)
+	at java.base/java.lang.invoke.MethodHandles$Lookup.linkMethodHandleConstant(MethodHandles.java:\?)
+	at java.base/java.lang.invoke.MethodHandleNatives.linkMethodHandleConstant(MethodHandleNatives.java:\?)
+	... 1 more

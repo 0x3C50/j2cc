@@ -1,0 +1,10 @@
+{
+  "type": "ASSEMBLY",
+  "name": "Test Locals",
+  "expectedProgramExit": 0,
+  "programArgs": [
+    "hello",
+    "chat"
+  ],
+  "jvmArgs": null
+}

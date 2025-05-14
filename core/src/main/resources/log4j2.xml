@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="https://logging.apache.org/xml/ns"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="
+                   https://logging.apache.org/xml/ns
+                   https://logging.apache.org/xml/ns/log4j-config-2.xsd">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%green{%d{HH:mm:ss.SSS}} %highlight{%.-3level} %blue{[%tn]} %yellow{%logger{0}}: %msg%n%xEx{full}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="${sys:j2cc.logLevel:-INFO}">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,269 @@
+.annotation j2cc/Nativeify {}
+.super java/lang/Object
+.class public Test {
+
+
+	.method <init> ()V {
+		parameters: { this },
+		code: {
+			aload this
+			invokespecial java/lang/Object.<init> ()V
+			return 
+		}
+	}
+
+	.method public static main ([Ljava/lang/String;)V {
+		parameters: { p0 },
+		code: {
+			getstatic java/lang/System.out Ljava/io/PrintStream;
+			astore out
+			aload out
+			ldc 5.3D
+			ldc 0.6D
+			dadd 
+			invokevirtual java/io/PrintStream.println (D)V
+			aload out
+			ldc 5.3D
+			ldc 0.6D
+			dsub 
+			invokevirtual java/io/PrintStream.println (D)V
+			aload out
+			ldc 5.3D
+			ldc -0.6D
+			ddiv 
+			invokevirtual java/io/PrintStream.println (D)V
+			aload out 
+			ldc 5.3D
+			ldc 0.6D
+			ddiv 
+			invokevirtual java/io/PrintStream.println (D)V
+			aload out 
+			ldc 5.3D
+			ldc ""
+			invokevirtual java/lang/String.length ()I
+			i2d 
+			ddiv 
+			invokevirtual java/io/PrintStream.println (D)V
+			aload out 
+			ldc 5.3D
+			ldc -0.6D
+			dmul 
+			invokevirtual java/io/PrintStream.println (D)V
+			aload out 
+			ldc 5.3D
+			ldc 0.6D
+			dmul 
+			invokevirtual java/io/PrintStream.println (D)V
+			aload out 
+			ldc 5.3D
+			dneg 
+			invokevirtual java/io/PrintStream.println (D)V
+			aload out 
+			ldc 5.3D
+			ldc 3.4D
+			drem 
+			invokevirtual java/io/PrintStream.println (D)V
+			aload out 
+			ldc 5.3F
+			ldc 0.6F
+			fsub 
+			invokevirtual java/io/PrintStream.println (F)V
+			aload out 
+			ldc 5.3F
+			ldc -0.6F
+			fdiv 
+			invokevirtual java/io/PrintStream.println (F)V
+			aload out 
+			ldc 5.3F
+			ldc 0.6F
+			fdiv 
+			invokevirtual java/io/PrintStream.println (F)V
+			aload out 
+			ldc 5.3F
+			ldc ""
+			invokevirtual java/lang/String.length ()I
+			i2f 
+			fdiv 
+			invokevirtual java/io/PrintStream.println (F)V
+			aload out 
+			ldc 5.3F
+			ldc -0.6F
+			fmul 
+			invokevirtual java/io/PrintStream.println (F)V
+			aload out 
+			ldc 5.3F
+			ldc 0.6F
+			fmul 
+			invokevirtual java/io/PrintStream.println (F)V
+			aload out 
+			ldc 5.3F
+			fneg 
+			invokevirtual java/io/PrintStream.println (F)V
+			aload out 
+			ldc 5.3F
+			ldc 3.4F
+			frem 
+			invokevirtual java/io/PrintStream.println (F)V
+			aload out 
+			iconst_5 
+			iconst_3 
+			iadd 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			iconst_5 
+			iconst_3 
+			isub 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			iconst_5 
+			bipush -2
+			idiv 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			iconst_5 
+			iconst_2 
+			idiv 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			bipush 6
+			iconst_2 
+			idiv 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			iconst_5 
+			bipush -2
+			imul 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			iconst_5 
+			iconst_2 
+			imul 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			iconst_5 
+			ineg 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			iconst_5 
+			iconst_3 
+			irem 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			iconst_5 
+			iconst_3 
+			iand 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			iconst_5 
+			iconst_3 
+			ior 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			iconst_5 
+			iconst_3 
+			ishl 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			sipush 500
+			iconst_3 
+			ishr 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			bipush -100
+			iconst_3 
+			ishr 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			bipush -100
+			iconst_3 
+			iushr 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			bipush 100
+			bipush 50
+			ixor 
+			invokevirtual java/io/PrintStream.println (I)V
+			aload out 
+			ldc 5L
+			ldc 3L
+			ladd 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc 5L
+			ldc 3L
+			lsub 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc 5L
+			ldc -2L
+			ldiv 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc 5L
+			ldc 2L
+			ldiv 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc 6L
+			ldc 2L
+			ldiv 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc 5L
+			ldc -2L
+			lmul 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc 5L
+			ldc 2L
+			lmul 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc 5L
+			lneg 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc 5L
+			ldc 3L
+			lrem 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc 5L
+			ldc 3L
+			land 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc 5L
+			ldc 3L
+			lor 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc 5L
+			iconst_3 
+			lshl 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc 500L
+			iconst_3 
+			lshr 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc -100L
+			iconst_3 
+			lshr 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out 
+			ldc -100L
+			iconst_3 
+			lushr 
+			invokevirtual java/io/PrintStream.println (J)V
+			aload out
+			ldc 100L
+			ldc 50L
+			lxor 
+			invokevirtual java/io/PrintStream.println (J)V
+			return 
+		}
+	}
+
+}

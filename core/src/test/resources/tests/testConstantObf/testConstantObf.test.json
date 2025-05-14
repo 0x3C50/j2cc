@@ -1,0 +1,10 @@
+{
+  "type": "SOURCE",
+  "name": "Test constant obf",
+  "expectedProgramExit": 0,
+  "programArgs": null,
+  "jvmArgs": null,
+  "obfuscationSettings":{
+    "constantObfuscation": true
+  }
+}

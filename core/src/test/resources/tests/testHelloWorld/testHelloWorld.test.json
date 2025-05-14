@@ -1,0 +1,7 @@
+{
+  "type": "ASSEMBLY",
+  "name": "Test Hello World",
+  "expectedProgramExit": 0,
+  "programArgs": null,
+  "jvmArgs": null
+}

@@ -1,0 +1,7 @@
+{
+  "type": "SOURCE",
+  "name": "Test Lambdas",
+  "expectedProgramExit": 0,
+  "programArgs": null,
+  "jvmArgs": null
+}

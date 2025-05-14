@@ -1,0 +1,7 @@
+{
+  "type": "SOURCE",
+  "name": "Test Propagating Exceptions",
+  "expectedProgramExit": 1,
+  "programArgs": null,
+  "jvmArgs": null
+}

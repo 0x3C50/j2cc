@@ -1,0 +1,171 @@
+.annotation j2cc/Nativeify {}
+.super java/lang/Object
+.class public Test {
+    .field public real I
+    .field public static realButStatic I
+
+    .method public <init> ()V {
+        parameters: { this },
+        code: {
+            aload this
+            invokespecial java/lang/Object.<init> ()V
+            return
+        }
+    }
+
+    .method public printShimButVirtual (Ljava/lang/String;)V {
+    	parameters: { this, c },
+		code: {
+			getstatic java/lang/System.out Ljava/io/PrintStream; // [obj]
+			aload c // [obj, s]
+			aload this  // [obj, s, this]
+			getfield Test.real I  // [obj, s, i]
+			invokestatic java/lang/String.valueOf (I)Ljava/lang/String;  // [obj, s, s]
+			invokevirtual java/lang/String.concat (Ljava/lang/String;)Ljava/lang/String; // [obj, s]
+			invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+			return
+		}
+    }
+
+    .method public toString ()Ljava/lang/String; {
+    	parameters: { this },
+    	code: {
+    		ldc "yep, this is a Test instance. real is: "
+			aload this  // [obj, s, this]
+			getfield Test.real I  // [obj, s, i]
+			invokestatic java/lang/String.valueOf (I)Ljava/lang/String;  // [obj, s, s]
+			invokevirtual java/lang/String.concat (Ljava/lang/String;)Ljava/lang/String; // [obj, s]
+			areturn
+    	}
+    }
+
+    .method public static printShim (Ljava/lang/Object;)V {
+    	parameters: { c },
+    	code: {
+    		getstatic java/lang/System.out Ljava/io/PrintStream;
+    		aload c
+    		invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+    		return
+    	}
+    }
+
+    .method public static main ([Ljava/lang/String;)V {
+        parameters: { p0 },
+        code: {
+            getstatic java/lang/System.out Ljava/io/PrintStream;
+            astore v1
+
+            ldc { getstatic, java/lang/Integer.TYPE, Ljava/lang/Class; }
+            astore v2
+
+            aload v1
+            aload v2
+            invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+
+            aload v1
+
+            aload v2
+            invokevirtual java/lang/invoke/MethodHandle.invoke ()Ljava/lang/Class;
+
+            invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+
+
+            ldc { newinvokespecial, Test.<init>, ()V }
+            astore v2
+
+            aload v1
+            aload v2
+            invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+
+            aload v2
+            invokevirtual java/lang/invoke/MethodHandle.invoke ()LTest;
+            astore v3
+
+            aload v1
+            aload v3
+            invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+
+
+            ldc { putfield, Test.real, I }
+            astore v2
+
+            aload v1
+            aload v2
+            invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+
+            aload v2
+            aload v3
+            bipush 123
+            invokevirtual java/lang/invoke/MethodHandle.invoke (Ljava/lang/Object;I)V
+
+            ldc { getfield, Test.real, I }
+            astore v2
+
+            aload v1
+            aload v2
+            invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+
+            aload v1
+            aload v2
+            aload v3
+            invokevirtual java/lang/invoke/MethodHandle.invoke (Ljava/lang/Object;)I
+            invokevirtual java/io/PrintStream.println (I)V
+
+            ldc { putstatic, Test.realButStatic, I }
+            astore v2
+
+            aload v1
+			aload v2
+			invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+
+			aload v2
+			bipush 121
+			invokevirtual java/lang/invoke/MethodHandle.invoke (I)V
+
+			ldc { getstatic, Test.realButStatic, I }
+			astore v2
+
+			aload v1
+			aload v2
+			invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+
+			aload v1
+			aload v2
+			invokevirtual java/lang/invoke/MethodHandle.invoke ()I
+			invokevirtual java/io/PrintStream.println (I)V
+
+			ldc { invokestatic, Test.printShim, (Ljava/lang/Object;)V }
+			astore v2
+
+			aload v1
+			aload v2
+			invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+
+			aload v2
+			ldc "hi"
+			invokevirtual java/lang/invoke/MethodHandle.invoke (Ljava/lang/Object;)V
+
+			ldc { invokevirtual, Test.printShimButVirtual, (Ljava/lang/String;)V }
+			astore v2
+
+			aload v1
+			aload v2
+			invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+
+			aload v2
+			aload v3
+			ldc "real is at: "
+			invokevirtual java/lang/invoke/MethodHandle.invoke (Ljava/lang/Object;Ljava/lang/String;)V
+
+			ldc { putfield, java/lang/String.value, [B }
+			astore v2
+
+			aload v1
+			aload v2
+			invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+
+            return
+        }
+    }
+
+}

@@ -1,0 +1,47 @@
+.super java/lang/Object
+.annotation j2cc/Nativeify {}
+.class public test {
+    .method public static main ([Ljava/lang/String;)V {
+        code: {
+            getstatic java/lang/System.out Ljava/io/PrintStream;
+            ldc { I, Ljava/lang/String;, { invokestatic, test.real, (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String; }, { "hello chat", 123 } }
+            invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+
+            getstatic java/lang/System.out Ljava/io/PrintStream;
+			ldc { I, Ljava/lang/String;, { invokestatic, test.real, (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String; }, { "hello chat", 123 } }
+			invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+
+			getstatic java/lang/System.out Ljava/io/PrintStream;
+			ldc { I, Ljava/lang/String;, { invokestatic, test.real, (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String; }, { "hello chat", 123 } }
+			invokevirtual java/io/PrintStream.println (Ljava/lang/Object;)V
+            return 
+        }
+    }
+
+    .method public static real (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String; {
+    	code: {
+    		ldc "Invoked: "
+			aload p3
+			invokevirtual java/lang/String.concat (Ljava/lang/String;)Ljava/lang/String;
+
+			iload p4
+			invokestatic java/lang/String.valueOf (I)Ljava/lang/String;
+
+			invokevirtual java/lang/String.concat (Ljava/lang/String;)Ljava/lang/String;
+
+			dup
+
+    		getstatic java/lang/System.out Ljava/io/PrintStream;
+
+    		swap
+
+    		invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+
+    		ldc "returned value"
+
+    		invokevirtual java/lang/String.concat (Ljava/lang/String;)Ljava/lang/String;
+
+    		areturn
+    	}
+    }
+}

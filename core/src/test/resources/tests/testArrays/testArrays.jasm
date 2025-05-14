@@ -1,0 +1,131 @@
+.annotation j2cc/Nativeify {}
+.super java/lang/Object
+.class public Test {
+
+
+	.method <init> ()V {
+		parameters: { this },
+		code: {
+			aload this
+			invokespecial java/lang/Object.<init> ()V
+			return 
+		}
+	}
+
+	.method public static main ([Ljava/lang/String;)V {
+		parameters: { p0 },
+		code: {
+			getstatic java/lang/System.out Ljava/io/PrintStream;
+			astore p0
+			aload p0
+			bipush 10
+			anewarray Ljava/lang/String;
+			dup 
+			iconst_3 
+			ldc "Hello"
+			aastore 
+			dup 
+			iconst_4 
+			ldc "World"
+			aastore 
+			dup 
+			iconst_3 
+			aaload 
+			swap 
+			invokestatic java/util/Arrays.toString ([Ljava/lang/Object;)Ljava/lang/String;
+			invokevirtual java/lang/String.concat (Ljava/lang/String;)Ljava/lang/String;
+			invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+			aload p0
+			iconst_3 
+			newarray boolean
+			dup 
+			iconst_1 
+			iconst_1 
+			bastore 
+			invokestatic java/util/Arrays.toString ([Z)Ljava/lang/String;
+			invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+			aload p0
+			iconst_3 
+			newarray char
+			dup 
+			iconst_1 
+			bipush 97
+			castore 
+			invokevirtual java/io/PrintStream.println ([C)V
+			aload p0
+			iconst_3 
+			newarray float
+			dup 
+			iconst_1 
+			ldc 1.5F
+			fastore 
+			invokestatic java/util/Arrays.toString ([F)Ljava/lang/String;
+			invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+			aload p0
+			iconst_3 
+			newarray double
+			dup 
+			iconst_1 
+			ldc 1.5D
+			dastore 
+			invokestatic java/util/Arrays.toString ([D)Ljava/lang/String;
+			invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+			aload p0
+			iconst_3 
+			newarray byte
+			dup 
+			iconst_1 
+			iconst_1 
+			bastore 
+			invokestatic java/util/Arrays.toString ([B)Ljava/lang/String;
+			invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+			aload p0
+			iconst_3 
+			newarray short
+			dup 
+			iconst_1 
+			iconst_1 
+			sastore 
+			invokestatic java/util/Arrays.toString ([S)Ljava/lang/String;
+			invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+			aload p0
+			iconst_3 
+			newarray int
+			dup 
+			iconst_1 
+			iconst_1 
+			iastore 
+			invokestatic java/util/Arrays.toString ([I)Ljava/lang/String;
+			invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+			aload p0
+			iconst_3 
+			newarray long
+			dup 
+			iconst_1 
+			lconst_1 
+			lastore 
+			invokestatic java/util/Arrays.toString ([J)Ljava/lang/String;
+			invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+			aload p0
+			iconst_5 
+			iconst_4 
+			iconst_3 
+			multianewarray [[[I 3
+			dup 
+			iconst_4 
+			aaload 
+			iconst_3 
+			aaload 
+			iconst_2 
+			bipush 123
+			iastore 
+			invokestatic java/util/Arrays.deepToString ([Ljava/lang/Object;)Ljava/lang/String;
+			invokevirtual java/io/PrintStream.println (Ljava/lang/String;)V
+			iconst_m1 
+			newarray int
+			pop 
+			return 
+		}
+	}
+
+}

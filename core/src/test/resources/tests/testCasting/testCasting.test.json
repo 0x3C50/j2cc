@@ -1,0 +1,7 @@
+{
+  "type": "ASSEMBLY",
+  "name": "Test Casting",
+  "expectedProgramExit": 0,
+  "programArgs": null,
+  "jvmArgs": null
+}
