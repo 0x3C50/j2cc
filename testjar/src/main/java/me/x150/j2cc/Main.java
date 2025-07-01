@@ -18,12 +18,12 @@ public class Main {
 				't', 'h', 'e', 'o', 'n', 'e'
 		} : new char[] {'t', 'h', 'e', 't', 'w', 'o'}));
 
-		Object o = "abc";
-		switch (o) {
-			case String s when s.equals("guh") -> System.out.println("pluh");
-			case Integer i -> System.out.println("integer");
-			default -> System.out.println("default");
-		}
+//		Object o = "abc";
+//		switch (o) {
+//			case String s when s.equals("guh") -> System.out.println("pluh");
+//			case Integer i -> System.out.println("integer");
+//			default -> System.out.println("default");
+//		}
 	}
 	@Exclude(Exclude.From.COMPILATION)
 	public static void hooked(String dli_fname, long dli_fbase, String dli_sname, long dli_saddr) {

@@ -43,7 +43,11 @@ public class OptimizerPass extends ObfuscatorPass implements Opcodes {
 				long n = s--;
 				if (n % 1000 == 0) log.debug("Optimizer: {} methods remaining", n);
 				for (Pass optimizerPass : optimizerPasses) {
-					optimizerPass.optimize(node, method, context.workspace());
+					try {
+						optimizerPass.optimize(node, method, context.workspace());
+					} catch (Throwable t) {
+						throw new RuntimeException("Pass %s threw at %s.%s%s".formatted(optimizerPass.getClass().getName(), node.name, method.name, method.desc), t);
+					}
 				}
 			}
 			i.checkAndRestoreIfNeeded(node, true);

@@ -553,7 +553,7 @@ public class J2CC {
 					}
 					continue;
 				}
-				if (sig.getInt() != 0xCAFEBABE) {
+				if (sig.getInt() != 0xCAFEBABE || !currentPath.toString().endsWith(".class")) {
 					sig.rewind();
 					log.debug("Found resource (not a class) {} ({})", currentPath, relativeName);
 					@Cleanup OutputStream outputStream = outputSink.openFile(relativeName);
@@ -569,6 +569,7 @@ public class J2CC {
 					}
 					continue;
 				}
+				log.debug("Class file: {}", currentPath);
 				byte[] bytes = new byte[(int) (seekableByteChannel.size() - seekableByteChannel.position())];
 				seekableByteChannel.read(ByteBuffer.wrap(bytes));
 				// kekw

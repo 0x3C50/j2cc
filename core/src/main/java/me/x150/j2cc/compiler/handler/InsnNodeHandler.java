@@ -406,12 +406,10 @@ public class InsnNodeHandler implements InsnHandler<InsnNode>, Opcodes {
 		*/
 
 		int moveStartRange = originalStackSize - moveElements;
-		int moveEndRange = originalStackSize;
 		int moveInto = expandedStackSize - moveElements;
-		m.addStatement("std::move(stack+$l, stack+$l, stack+$l)", moveStartRange, moveEndRange, moveInto);
+		m.addStatement("std::memmove(stack+$l, stack+$l, $l * sizeof(jvalue))", moveInto, moveStartRange, moveElements);
 		int copyStartRange = expandedStackSize - dupElements;
-		int copyEndRange = expandedStackSize;
 		int copyInto = originalStackSize - moveElements;
-		m.addStatement("std::copy(stack+$l, stack+$l, stack+$l)", copyStartRange, copyEndRange, copyInto);
+		m.addStatement("std::memcpy(stack+$l, stack+$l, $l * sizeof(jvalue))", copyInto, copyStartRange, dupElements);
 	}
 }

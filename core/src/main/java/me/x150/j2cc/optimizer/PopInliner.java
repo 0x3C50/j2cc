@@ -97,7 +97,7 @@ public class PopInliner implements Pass, Opcodes {
 				IXOR, 2,
 				LXOR, 4,
 
-				IINC, 1,
+//				IINC, 1,
 
 				I2L, 1,
 				I2F, 1,

@@ -47,7 +47,6 @@ void checkForHookedFunctions(JNIEnv *env) {
 			void *const*a = start + offset;
 			void *const*b = startSecond + offset;
 			if (*a != *b) {
-				printf("pointer mismatch: %p (safe) != %p (unsafe)\n", *b, *a);
 				// function pointer differs
 #if HOOK_ACTION == 0
 				exit(0);

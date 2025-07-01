@@ -5,9 +5,9 @@ import lombok.extern.log4j.Log4j2;
 import me.x150.j2cc.J2CC;
 import me.x150.j2cc.conf.Context;
 import me.x150.j2cc.obfuscator.etc.*;
+import me.x150.j2cc.obfuscator.flow.FlowFlatten;
 import me.x150.j2cc.obfuscator.optim.*;
 import me.x150.j2cc.obfuscator.refs.MhCallRef;
-import me.x150.j2cc.obfuscator.strings.StringObfuscator;
 import me.x150.j2cc.tree.Workspace;
 import me.x150.j2cc.util.Util;
 import org.objectweb.asm.tree.ClassNode;
@@ -28,7 +28,7 @@ public class Obfuscator {
 			new ExtractConstructors(),
 			new Inliner(),
 //			new MethodSplitter(),
-//			new FlowFlatten(),
+			new FlowFlatten(),
 //			new MethodCombiner(),
 //			new FlowExc(),
 //			new FlowReorder(),
