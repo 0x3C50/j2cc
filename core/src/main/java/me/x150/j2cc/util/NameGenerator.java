@@ -3,12 +3,13 @@ package me.x150.j2cc.util;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class NameGenerator {
 	public static final String ALPH_LOWER = "abcdefghijklmnopqrstuvwxyz";
-	public static final String ALPH_UPPER = ALPH_LOWER.toUpperCase();
+	public static final String ALPH_UPPER = ALPH_LOWER.toUpperCase(Locale.ROOT);
 	public static final String ALPH_LOWER_UPPER = ALPH_LOWER + ALPH_UPPER;
 	final String dictionary;
 	long counter = 0;

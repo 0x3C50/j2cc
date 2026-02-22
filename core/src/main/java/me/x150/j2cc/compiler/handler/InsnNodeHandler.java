@@ -12,6 +12,8 @@ import org.objectweb.asm.tree.analysis.BasicValue;
 import org.objectweb.asm.tree.analysis.Frame;
 import org.objectweb.asm.tree.analysis.SourceValue;
 
+import java.util.Locale;
+
 @Nativeify
 public class InsnNodeHandler implements InsnHandler<InsnNode>, Opcodes {
 
@@ -85,7 +87,7 @@ public class InsnNodeHandler implements InsnHandler<InsnNode>, Opcodes {
 					String arrayVar = "j"+type+"Arr0";
 					String lenS = "arrlen0";
 					// null check
-					m.localInitialValue("j" + type.toLowerCase() + "Array", arrayVar, "nullptr").initStmt("(j$lArray) stack[$l].l", type.toLowerCase(), stack - 2);
+					m.localInitialValue("j" + type.toLowerCase(Locale.ROOT) + "Array", arrayVar, "nullptr").initStmt("(j$lArray) stack[$l].l", type.toLowerCase(Locale.ROOT), stack - 2);
 					boolean isNu = Util.couldBeNull(compilerContext.sourceFrames(), compilerContext.instructions(), sourceValueFrame.getStack(stack - 2));
 					if (isNu) {
 						m.beginScope("if (!$l)", arrayVar);
@@ -106,7 +108,7 @@ public class InsnNodeHandler implements InsnHandler<InsnNode>, Opcodes {
 					m.endScope();
 
 					String carryVar = "j"+type+"ArrayBuffer0";
-					String carryType = "j" + type.toLowerCase() + "*";
+					String carryType = "j" + type.toLowerCase(Locale.ROOT) + "*";
 					m.local(carryType, carryVar).initStmt("($l) env->GetPrimitiveArrayCritical($l, nullptr)", carryType, arrayVar);
 					m.addStatement("stack[$l].$l = $l[stack[$l].i]", stack - 2, op, carryVar, stack - 1);
 					m.addStatement("env->ReleasePrimitiveArrayCritical($l, $l, JNI_ABORT)", arrayVar, carryVar);
@@ -123,7 +125,7 @@ public class InsnNodeHandler implements InsnHandler<InsnNode>, Opcodes {
 
 					String arrayRef = "j"+name+"Arr0";
 					String lenS = "arrlen0";
-					m.localInitialValue("j" + name.toLowerCase() + "Array", arrayRef, "nullptr").initStmt("(j$lArray) stack[$l].l", name.toLowerCase(), stack - 3);
+					m.localInitialValue("j" + name.toLowerCase(Locale.ROOT) + "Array", arrayRef, "nullptr").initStmt("(j$lArray) stack[$l].l", name.toLowerCase(Locale.ROOT), stack - 3);
 
 					// null check
 					boolean isNu = Util.couldBeNull(compilerContext.sourceFrames(), compilerContext.instructions(), sourceValueFrame.getStack(stack - 3));

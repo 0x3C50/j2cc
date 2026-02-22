@@ -329,12 +329,12 @@ public class Entry {
 
 		contextBuilder.extraClassFilters(Arrays.stream(configuration.annotOverridesC).map(it -> new Context.AnnotationOverrides<>(
 				Arrays.stream(it.classes).map(ClassFilter::fromString).toArray(ClassFilter[]::new),
-				Arrays.stream(it.excludeFrom).map(vv -> Exclude.From.valueOf(vv.toUpperCase())).toArray(Exclude.From[]::new)
+				Arrays.stream(it.excludeFrom).map(vv -> Exclude.From.valueOf(vv.toUpperCase(Locale.ROOT))).toArray(Exclude.From[]::new)
 		)).toList());
 
 		contextBuilder.extraMemberFilters(Arrays.stream(configuration.annotOverridesM).map(it -> new Context.AnnotationOverrides<>(
 				Arrays.stream(it.members).map(MemberFilter::fromFilter).toArray(MemberFilter[]::new),
-				Arrays.stream(it.excludeFrom).map(vv -> Exclude.From.valueOf(vv.toUpperCase())).toArray(Exclude.From[]::new)
+				Arrays.stream(it.excludeFrom).map(vv -> Exclude.From.valueOf(vv.toUpperCase(Locale.ROOT))).toArray(Exclude.From[]::new)
 		)).toList());
 
 		contextBuilder.classesToInclude(Arrays.stream(configuration.getCompileClasses()).map(ClassFilter::fromString).toList());

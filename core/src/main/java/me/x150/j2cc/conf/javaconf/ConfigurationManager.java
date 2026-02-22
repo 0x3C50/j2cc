@@ -116,7 +116,7 @@ public record ConfigurationManager(Configurable root) {
 			T[] enumConstants = type.getEnumConstants();
 			String s = (String) value;
 			for (T enumConstant : enumConstants) {
-				if (((Enum<?>) enumConstant).name().equalsIgnoreCase(s)) {
+				if (((Enum<?>) enumConstant).name().toLowerCase(Locale.ROOT).equals(s.toLowerCase(Locale.ROOT))) {
 					return enumConstant;
 				}
 			}

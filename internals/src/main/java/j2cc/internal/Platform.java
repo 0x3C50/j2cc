@@ -5,6 +5,8 @@ package j2cc.internal;
  *
  * @see <a href="https://github.com/java-native-access/jna/blob/master/src/com/sun/jna/Platform.java">jna/.../Platform</a>
  */
+import java.util.Locale;
+
 public final class Platform {
 	public static final int UNSPECIFIED = -1;
 	public static final int MAC = 0;
@@ -76,7 +78,7 @@ public final class Platform {
 	}
 
 	static String getCanonicalArchitecture(String arch) {
-		arch = arch.toLowerCase().trim();
+		arch = arch.toLowerCase(Locale.ROOT).trim();
 		switch (arch) {
 			case "i386":
 			case "i686":
@@ -138,7 +140,7 @@ public final class Platform {
 				osPrefix = arch + "-kfreebsd";
 				break;
 			default:
-				osPrefix = name.toLowerCase();
+				osPrefix = name.toLowerCase(Locale.ROOT);
 				int space = osPrefix.indexOf(" ");
 				if (space != -1) {
 					osPrefix = osPrefix.substring(0, space);

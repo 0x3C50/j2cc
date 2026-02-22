@@ -6,6 +6,8 @@ import me.x150.j2cc.cppwriter.Method;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.MultiANewArrayInsnNode;
 
+import java.util.Locale;
+
 public class MultiANewArrayInsnHandler implements InsnHandler<MultiANewArrayInsnNode> {
 
 	private static final String[] ARRAY_TYPE_NAMES = {null, "Boolean", "Char", "Byte", "Short", "Int", "Float", "Long", "Double", null, null};
@@ -40,7 +42,7 @@ public class MultiANewArrayInsnHandler implements InsnHandler<MultiANewArrayInsn
 		}
 
 		if (sort != Type.OBJECT && sort != Type.ARRAY) {
-			m.local("j" + arrayTypeName.toLowerCase() + "Array", "arr" + (nDims - 1) + suffix).initStmt("env->New$lArray(stack[$l].i)", arrayTypeName, stackSN - 1);
+			m.local("j" + arrayTypeName.toLowerCase(Locale.ROOT) + "Array", "arr" + (nDims - 1) + suffix).initStmt("env->New$lArray(stack[$l].i)", arrayTypeName, stackSN - 1);
 		} else {
 			String n = sort == Type.ARRAY ? actualFinalArrayType.getDescriptor() : actualFinalArrayType.getInternalName();
 			String resolvedName = compilerContext.cache().getOrCreateClassResolve(n, 0);
