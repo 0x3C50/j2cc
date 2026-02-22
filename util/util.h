@@ -39,6 +39,7 @@
 #include <cstring>
 #include <sstream>
 #include <mutex>
+#include <memory>
 
 #include "chacha20.h"
 
@@ -60,7 +61,8 @@ static void initChachaTable(JNIEnv* env, jbyteArray jba) {
     unsigned char keyData[48];
     env->GetByteArrayRegion(jba, 0, 48, reinterpret_cast<jbyte*>(keyData));
     size_t ctLen = roundUp(stringConstantPool->n, 64);
-    unsigned char chachaTable[ctLen];
+    auto chachaTablePtr = std::make_unique<unsigned char[]>(ctLen);
+    unsigned char* chachaTable = chachaTablePtr.get();
     // one block is 64 bytes. we have n bytes in total
     size_t nBlocks = ctLen / 64;
     fuckMyShitUp(keyData, chachaTable, nBlocks);
